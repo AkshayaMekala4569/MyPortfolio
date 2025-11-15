@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hi, I'm Akshaya Mekala — Remote Data Analyst</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================
+       Color palette & fonts
+       ========================= */
+    :root{
+      --bg:#F9F9F9;
+      --text:#1B1F11;
+      --accent:#00B8D9;
+      --muted:#6b6f6b;
+      --card:#ffffff;
+      --radius:12px;
+      --soft-shadow: 0 6px 18px rgba(28,31,25,0.06);
+      --lift-shadow: 0 12px 30px rgba(28,31,25,0.10);
+    }
+
+    html,body{
+      height:100%;
+      background:var(--bg);
+      color:var(--text);
+      font-family: "Inter", "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    /* =========================
+       Utility & layout
+       ========================= */
+    .container-xxl { max-width:1200px; }
+    .soft-card {
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--soft-shadow);
+      transition:transform .25s ease, box-shadow .25s ease;
+    }
+    .soft-card:hover { transform: translateY(-6px); box-shadow: var(--lift-shadow); }
+
+    h1, h2, h3 { font-family: "Poppins", "Inter"; color:var(--text); }
+    .muted { color:var(--muted); }
+
+    /* =========================
+       Hero Section
+       ========================= */
+    .hero {
+      padding:88px 0;
+      min-height:480px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .hero .intro {
+      max-width:920px;
+      margin:0 auto;
+      padding:36px;
+      border-radius:16px;
+    }
+    .hero h1 {
+      font-size:clamp(28px, 4vw, 44px);
+      line-height:1.05;
+      margin-bottom:12px;
+      font-weight:700;
+    }
+    .hero p.lead {
+      font-size:1.05rem;
+      margin-bottom:20px;
+      color:var(--muted);
+    }
+    .btn-accent {
+      background:var(--accent);
+      border-color:var(--accent);
+      color:white;
+      border-radius:999px;
+      padding:10px 20px;
+      font-weight:600;
+    }
+    .btn-outline-accent {
+      color:var(--accent);
+      border-radius:999px;
+      border:1.5px solid rgba(0,184,217,0.18);
+      padding:9px 18px;
+      font-weight:600;
+      background:transparent;
+    }
+
+    /* =========================
+       About section
+       ========================= */
+    .about {
+      padding:64px 0;
+    }
+    .about .avatar {
+      max-width:180px;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--soft-shadow);
+    }
+
+    /* =========================
+       Skills
+       ========================= */
+    .skills {
+      padding:48px 0;
+    }
+    .skill-card {
+      border-radius:12px;
+      padding:18px;
+      text-align:center;
+      background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.8));
+      box-shadow: var(--soft-shadow);
+    }
+    .skill-card .bi {
+      font-size:28px;
+      margin-bottom:8px;
+      display:block;
+    }
+
+    /* =========================
+       Projects
+       ========================= */
+    .projects {
+      padding:48px 0;
+    }
+    .project-card {
+      border-radius:14px;
+      overflow:hidden;
+      transition:transform .25s ease, box-shadow .25s ease;
+      background:var(--card);
+      box-shadow:var(--soft-shadow);
+    }
+    .project-card:hover { transform: translateY(-8px); box-shadow:var(--lift-shadow); }
+    .project-thumb {
+      height:160px;
+      object-fit:cover;
+      width:100%;
+      display:block;
+    }
+    .project-body { padding:18px; }
+
+    /* =========================
+       Contact
+       ========================= */
+    .contact {
+      padding:56px 0;
+    }
+    .social a { margin-right:12px; font-size:20px; color:var(--muted); }
+    .social a:hover { color:var(--accent); }
+
+    footer {
+      padding:28px 0;
+      text-align:center;
+      color:var(--muted);
+    }
+
+    /* =========================
+       Animations (scroll reveal)
+       ========================= */
+    .reveal {
+      opacity:0;
+      transform:translateY(18px);
+      transition: all .6s cubic-bezier(.2,.9,.3,1);
+    }
+    .reveal.visible {
+      opacity:1;
+      transform:none;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width:767px){
+      .hero { padding:48px 0; min-height:420px; }
+      .about .avatar { margin-bottom:18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAV ========== -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-3">
+    <div class="container-xxl">
+      <a class="navbar-brand fw-bold" href="#">Akshaya Mekala</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero">
+    <div class="container-xxl">
+      <div class="intro soft-card reveal">
+        <h1>Hi, I’m <span class="text-nowrap">Akshaya Mekala</span> — Remote Data Analyst.</h1>
+        <p class="lead">Transforming data into insights through SQL, Excel, Python and Power BI.</p>
+
+        <div class="d-flex justify-content-center gap-3 flex-wrap">
+          <!-- Replace hrefs below: #projects anchors to Projects section; resume link should be replaced with actual resume URL -->
+          <a class="btn btn-accent" href="#projects">View My Projects</a>
+          <a class="btn btn-outline-accent" href="C:\Users\DELL\OneDrive\Desktop\Data_Analyst_Portfolio_Website\Akshaya_Data_Analyst_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="about" class="about">
+      <div class="container-xxl">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-4 reveal">
+            <div class="avatar">
+              <!-- Replace the src with your own photo/avatar. -->
+              <img src="C:\Users\DELL\Downloads\Untitled design.png" alt="Avatar" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-lg-8 reveal">
+            <div class="p-4 rounded">
+              <h2 class="mb-3">About</h2>
+              <p class="muted">
+                I'm <strong>Akshaya Mekala</strong>, a Data Analyst specializing in SQL, Excel, and Power BI with hands-on experience in data cleaning, reporting, and dashboard development. I bring a strong analytical mindset and a passion for accuracy, especially when working with messy or unstructured dataset
+                
+                I’ve built end-to-end analytical solutions across multiple domains, applying ETL techniques, automation, and visual storytelling to help answer real business questions. My recent projects include HR attrition analysis, sales performance dashboards, course engagement trends, and event analytics.
+                
+                I’m known for my attention to detail, my ability to work independently, and my commitment to delivering high-quality data. I enjoy transforming raw datasets into actionable insights that help teams understand performance, identify risks, and make confident, data-driven decisions.
+              </p>
+
+              <div class="mt-3">
+                <a class="btn btn-accent me-2" href="#projects">See My Work</a>
+                <a class="btn btn-outline-accent" href="mailto:akshayamekala4569@gmail.com">Get In Touch</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+<section id="skills" class="skills">
+  <div class="container-xxl">
+    <div class="d-flex justify-content-between align-items-center mb-4 reveal">
+      <h2>Skills</h2>
+      <p class="muted mb-0">Tools & technologies I work with</p>
+    </div>
+
+    <div class="row g-3">
+
+      <!-- SQL -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKwO0B22Qcm92hVWsbzbZOvxOilpLWLnu7dQ&s" width="100" height="100" alt="SQL">
+          <h6 class="mb-1">SQL</h6>
+          <small class="muted">Joins, Window Functions, CTEs</small>
+        </div>
+      </div>
+
+      <!-- Excel -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Microsoft_Office_Excel_%282019%E2%80%932025%29.svg/1200px-Microsoft_Office_Excel_%282019%E2%80%932025%29.svg.png" width="100" height="100" alt="Excel">
+          <h6 class="mb-1">Excel</h6>
+          <small class="muted">Power Query ETL & Pivot Modeling</small>
+        </div>
+      </div>
+
+      <!-- Power BI -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://1000logos.net/wp-content/uploads/2022/12/Power-BI-Logo.jpg" width="100" height="100" alt="Power BI">
+          <h6 class="mb-1">Power BI</h6>
+          <small class="muted">Dashboards, DAX & Modeling</small>
+        </div>
+      </div>
+
+      <!-- Python -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/1024px-Python.svg.png" width="100" height="100" alt="Python">
+          <h6 class="mb-1">Python</h6>
+          <small class="muted">Pandas, NumPy, Matplotlib</small>
+        </div>
+      </div>
+
+      <!-- Data Visualization -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://e7.pngegg.com/pngimages/74/966/png-clipart-data-visualization-data-analysis-big-data-business-intelligence-managerial-skills-writing-company-text.png" width="100" height="100" alt="Data Visualization">
+          <h6 class="mb-1">Data Visualization</h6>
+          <small class="muted">Charts & Insight Storytelling</small>
+        </div>
+      </div>
+
+      <!-- NEW SKILL: ETL -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://static.vecteezy.com/system/resources/previews/030/971/411/non_2x/etl-icon-vector.jpg" width="100" height="100" alt="ETL">
+          <h6 class="mb-1">ETL Workflows</h6>
+          <small class="muted">Data cleaning & transformation</small>
+        </div>
+      </div>
+
+      <!-- NEW SKILL: Databases -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://www.freelancinggig.com/blog/wp-content/uploads/2017/05/SQL-Server-and-MySQL.jpg" width="160" height="160" alt="Databases">
+          <h6 class="mb-1">Databases</h6>
+          <small class="muted">MySQL & MS SQL Server</small>
+        </div>
+      </div>
+
+      <!-- NEW SKILL: Data Quality -->
+      <div class="col-6 col-sm-4 col-md-3 reveal">
+        <div class="skill-card p-3 h-100">
+          <img src="https://cdn-icons-png.flaticon.com/512/10397/10397399.png" width="140" height="140" alt="Data Quality">
+          <h6 class="mb-1">Data Quality</h6>
+          <small class="muted">Validation & consistency checks</small>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- ========== PROJECTS ========== -->
+    <section id="projects" class="projects">
+      <div class="container-xxl">
+        <div class="d-flex justify-content-between align-items-center mb-4 reveal">
+          <h2>Projects</h2>
+          <p class="muted mb-0">Selected work — click to explore</p>
+        </div>
+
+        <div class="row g-4">
+          <!-- Project card example
+               To add more project cards, copy one .col element below and paste it directly inside this .row.
+               Replace image src, title, description, and the "View Project" / "View Dashboard" hrefs.
+          -->
+          <div class="col-12 col-md-6 col-lg-4 reveal">
+            <article class="project-card">
+              <img class="project-thumb" src="https://cms-assets.recognizeapp.com/wp-content/uploads/2022/01/31105835/factors-influencing-employee-turnover-intention.webp" alt="Project thumbnail">
+              <div class="project-body">
+                <h5 class="mb-1">IBM HR Analytics – Employee Attrition Analysis</h5>
+                <p class="muted small">A comprehensive analysis of the IBM HR Employee Attrition dataset using Microsoft Excel. This project includes data cleaning, exploratory data analysis, performance and attrition trend insights, and interactive dashboards. The aim is to identify key factors contributing to employee attrition and provide actionable insights for HR decision-making.</p>
+                <div class="mt-3 d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-accent" href="https://github.com/AkshayaMekala4569/IBM-HR-Analytics-Employee-Attrition" target="_blank" rel="noopener">View Project</a>
+                  <a class="btn btn-sm btn-accent" href="https://github.com/AkshayaMekala4569/IBM-HR-Analytics-Employee-Attrition/blob/main/Dynamic_Dashboard.png" target="_blank" rel="noopener">View Dashboard</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 reveal">
+            <article class="project-card">
+              <img class="project-thumb" src="https://media.istockphoto.com/id/2156169703/photo/a-decorator-sits-at-a-table-in-a-restaurant-and-uses-a-digital-tablet-that-displays-detailed.jpg?s=612x612&w=0&k=20&c=gRZGPwEEm9oGGhHJRBG9vFunTP1YFkGIr33L9ZdkyYg=" alt="Project thumbnail">
+              <div class="project-body">
+                <h5 class="mb-1">Akshrav_Event_Planning_Analytics</h5>
+                <p class="muted small">A comprehensive analysis of events in Telangana, uncovering trends in client budgets, venue performance, and event categories. This project provides actionable insights to help planners optimize revenue, resource allocation, and client satisfaction.</p>
+                <div class="mt-3 d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-accent" href="https://github.com/AkshayaMekala4569/Akshrav_Event_Planning_Analytics" target="_blank" rel="noopener">View Project</a>
+                  <a class="btn btn-sm btn-accent" href="https://github.com/AkshayaMekala4569/Akshrav_Event_Planning_Analytics/blob/main/Dashboards/Dashboard.png" target="_blank" rel="noopener">View Dashboard</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 reveal">
+            <article class="project-card">
+              <img class="project-thumb" src="https://images.pexels.com/photos/942320/pexels-photo-942320.jpeg" alt="Project thumbnail">
+              <div class="project-body">
+                <h5 class="mb-1">US Candy Distributor Dashboard</h5>
+                <p class="muted small">This project presents an interactive Power BI dashboard for a U.S.-based candy distributor, providing comprehensive analysis of sales, products, customers, and performance targets. It includes key performance indicators (KPIs), trend analysis, customer segmentation, and product profitability insights.</p>
+                <div class="mt-3 d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-accent" href="https://github.com/AkshayaMekala4569/US_Candy_Distributor_PowerBI" target="_blank" rel="noopener">View Project</a>
+                  <a class="btn btn-sm btn-accent" href="https://github.com/AkshayaMekala4569/US_Candy_Distributor_PowerBI/blob/main/Dashboard.png" target="_blank" rel="noopener">View Dashboard</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 reveal">
+            <article class="project-card">
+              <img class="project-thumb" src="https://erepublic.brightspotcdn.com/dims4/default/a8dccd4/2147483647/strip/true/crop/6200x3233+0+0/resize/840x438!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2F1b%2Ff0%2F3a2fc39c4de7943d2e5b6813bfd2%2Fonline-college-course.jpg" alt="Project thumbnail">
+              <div class="project-body">
+                <h5 class="mb-1">Student Engagement Analysis SQL Project</h5>
+                <p class="muted small">SQL Project on Student Engagement Analysis. This project explores an online course platform dataset, performing data cleaning, exploratory data analysis (EDA), and KPI analysis. It highlights key insights such as completion rates, dropout trends, active student behavior, and demographic patterns.</p>
+                <div class="mt-3 d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-accent" href="https://github.com/AkshayaMekala4569/Online_Student_Engagement_SQL_Project" target="_blank" rel="noopener">View Project</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 reveal">
+            <article class="project-card">
+              <img class="project-thumb" src="https://images.moneycontrol.com/static-mcnews/2020/03/DOPs-Nusrat-Shooting3-654x435.jpg?impolicy=website&width=770&height=431" alt="Project thumbnail">
+              <div class="project-body">
+                <h5 class="mb-1">Male vs Female in Direction in Indian Films </h5>
+                <p class="muted small">A gender-based analysis of film direction in Indian cinema, highlighting the representation of male and female directors across time and genres. This project visualizes disparities, trends, and progress in the creative leadership behind the screen.</p>
+                <div class="mt-3 d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-accent" href="https://github.com/AkshayaMekala4569/gender-disparity-direction-indian-films" target="_blank" rel="noopener">View Project</a>
+                  <a class="btn btn-sm btn-accent" href="https://medium.com/@akshayamekala4569/lights-camera-inequality-the-gender-disparities-among-indian-film-directors-8935d2e7f3a7" target="_blank" rel="noopener">Read Post</a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 reveal">
+            <article class="project-card">
+              <img class="project-thumb" src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Project thumbnail">
+              <div class="project-body">
+                <h5 class="mb-1">US Candy Distributor Dashboard</h5>
+                <p class="muted small">This project presents an interactive Power BI dashboard for a U.S.-based candy distributor, providing comprehensive analysis of sales, products, customers, and performance targets. It includes key performance indicators (KPIs), trend analysis, customer segmentation, and product profitability insights.</p>
+                <div class="mt-3 d-flex gap-2">
+                  <a class="btn btn-sm btn-outline-accent" href="https://github.com/AkshayaMekala4569/US_Candy_Distributor_PowerBI" target="_blank" rel="noopener">View Project</a>
+                  <a class="btn btn-sm btn-accent" href="https://github.com/AkshayaMekala4569/US_Candy_Distributor_PowerBI/blob/main/Dashboard.png" target="_blank" rel="noopener">View Dashboard</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+
+
+
+          <!-- You can add 1-3 more project cards here by copying the blocks above -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BLOG / STORIES ========== -->
+<section id="blog" class="projects py-5">
+  <div class="container-xxl">
+    <div class="d-flex justify-content-between align-items-center mb-4 reveal">
+      <h2>Come Read My Stories</h2>
+      <p class="muted mb-0">Insights, analytics, and stories I’ve written.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Blog Card 1-->
+      <div class="col-12 col-md-6 col-lg-4 reveal">
+        <article class="project-card">
+          <img class="project-thumb" src="https://divethru.com/wp-content/uploads/2021/03/feeling-confused-1024x576.jpg" alt="Blog thumbnail">
+          <div class="project-body">
+            <h5 class="mb-1">The Strange Swing Between Feeling Useless and Feeling Like a Genius</h5>
+            <p class="muted small">
+              Do you ever feel like you’re either the dumbest person in the room or the smartest — with nothing in between?
+I do.
+Whenever I don’t get something, I spiral into feeling useless. But when I finally understand, I suddenly think I’m a genius — and stop learning altogether. It’s a strange, tiring swing that I’m only now learning to steady.
+            </p>
+            <div class="mt-3">
+              <a class="btn btn-sm btn-accent" href="https://medium.com/@akshayamekala4569/the-strange-swing-between-feeling-useless-and-feeling-like-a-genius-a27f740412b4" target="_blank" rel="noopener">Read Post</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <!-- Blog Card 2 -->
+      <div class="col-12 col-md-6 col-lg-4 reveal">
+        <article class="project-card">
+          <img class="project-thumb" src="https://5.imimg.com/data5/SELLER/Default/2022/10/JQ/LI/UR/116437941/event-photography-service-500x500.jpg" alt="Blog thumbnail">
+          <div class="project-body">
+            <h5 class="mb-1">Event Planning Analytics: Insights from Telangana Events</h5>
+            <p class="muted small">
+              Event planning in Telangana is all about creating memorable moments while balancing budgets, selecting perfect venues, and coordinating food, entertainment, photography, and logistics. In this project, I explored event data to uncover trends, revenue patterns, and client preferences — helping planners make smarter, more successful decisions.
+
+Press enter or click to view image in full size
+
+            </p>
+            <div class="mt-3">
+              <a class="btn btn-sm btn-accent" href="https://medium.com/@akshayamekala4569/event-planning-analytics-insights-from-telangana-events-b4270b85ee73" target="_blank" rel="noopener">Read Post</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Add more blog cards below by copying the col div above -->
+    </div>
+  </div>
+</section>
+
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="contact">
+      <div class="container-xxl">
+        <div class="row g-4">
+          <div class="col-lg-6 reveal">
+            <h2>Contact</h2>
+            <p class="muted">Have a project or a role you're hiring for? I'd love to help. Send me a message and I'll reply within a few business days.</p>
+
+            <!-- Note: Form uses client-side validation only. Replace the mailto link or hook to your preferred form backend. -->
+            <form id="contactForm" class="mt-4 needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input id="name" name="name" class="form-control" required>
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input id="email" name="email" type="email" class="form-control" required>
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+                <div class="invalid-feedback">Please enter a message.</div>
+              </div>
+
+              <div class="d-flex gap-2">
+                <!-- You can change the form action to your backend or use a service (Formspree, Getform, etc.). -->
+                <button type="submit" class="btn btn-accent">Send Message</button>
+                <button type="reset" class="btn btn-outline-accent">Reset</button>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-lg-6 reveal">
+            <h5>Also reach me at</h5>
+            <p class="muted">Connect via LinkedIn or GitHub for portfolio previews, or send a direct email.</p>
+
+            <div class="social mb-4">
+              <!-- Replace the hrefs with your profiles -->
+              <a href="https://github.com/AkshayaMekala4569" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+              <a href="mailto:akshayamekala4569@gmail.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
+            </div>
+
+            <div class="mt-4 p-4 soft-card">
+              <h6 class="mb-1">Availability</h6>
+              <p class="muted small mb-0">Open to remote contract & full-time roles. Timezone: IST (India).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container-xxl">
+      <small>Designed &amp; built by Akshaya ❤️</small>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // -----------------------
+    // Simple reveal-on-scroll
+    // -----------------------
+    (function(){
+      const reveals = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) {
+            e.target.classList.add('visible');
+            // Uncomment to reveal only once:
+            // io.unobserve(e.target);
+          }
+        });
+      }, {threshold: 0.12});
+      reveals.forEach(r => io.observe(r));
+    })();
+
+    // -----------------------
+    // Simple form validation
+    // -----------------------
+    (function () {
+      'use strict'
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        } else {
+          // If you want the form to actually send an email:
+          // - Replace this block with code that posts to your backend or a service like Formspree.
+          event.preventDefault();
+          alert('Thanks! Your message was recorded locally. Replace the form action with your backend or a form service to actually send messages.');
+          form.reset();
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })();
+  </script>
+
+  
+
+</body>
+</html>
